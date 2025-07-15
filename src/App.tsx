@@ -4,13 +4,9 @@ import CafeInfo from "./components/CafeInfo_component/CafeInfo";
 import VoteOptions from "./components/VoteOptions_component/VoteOptions";
 import VoteStats from "./components/VoteStats_component/VoteStats";
 import Notification from "./components/Notification_component/Notification";
+import type { Votes } from "./components/types/votes";
 
 function App() {
-  interface Votes {
-    good: number;
-    neutral: number;
-    bad: number;
-  }
   const [canReset, setCanReset] = useState<boolean>(false);
 
   const [vote, setVote] = useState<Votes>({

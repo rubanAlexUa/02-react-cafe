@@ -1,10 +1,7 @@
 import styles from "./VoteStats.module.css";
+import type { Votes } from "../types/votes";
 interface VoteStats {
-  vote: {
-    good: number;
-    neutral: number;
-    bad: number;
-  };
+  vote: Votes;
 }
 export default function VoteStats({ vote: { good, neutral, bad } }: VoteStats) {
   const totalVotes: number = good + neutral + bad;
