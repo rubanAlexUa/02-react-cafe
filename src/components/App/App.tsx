@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import CafeInfo from "./components/CafeInfo_component/CafeInfo";
-import VoteOptions from "./components/VoteOptions_component/VoteOptions";
-import VoteStats from "./components/VoteStats_component/VoteStats";
-import Notification from "./components/Notification_component/Notification";
-import type { Votes } from "./types/votes";
+import CafeInfo from "../CafeInfo_component/CafeInfo";
+import VoteOptions from "../VoteOptions_component/VoteOptions";
+import VoteStats from "../VoteStats_component/VoteStats";
+import Notification from "../Notification_component/Notification";
+import type { Votes } from "../../types/votes";
 
 function App() {
   const [canReset, setCanReset] = useState<boolean>(false);
