@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import CafeInfo from "../CafeInfo/CafeInfo";
 import VoteOptions from "../VoteOptions/VoteOptions";
-import VoteStatsProps from "../VoteStats/VoteStats";
+import VoteStats from "../VoteStats/VoteStats";
 import Notification from "../Notification/Notification";
 import type { Votes } from "../../types/votes";
 import type { VoteType } from "../../types/votes";
@@ -23,10 +23,10 @@ function App() {
 
   function onVote(key: VoteType): void {
     setCanReset(true);
-    setVote({
-      ...vote,
-      [key]: vote[key] + 1,
-    });
+    setVote((prevVote) => ({
+      ...prevVote,
+      [key]: prevVote[key] + 1,
+    }));
     console.log(vote);
   }
   function onReset(): void {
@@ -42,14 +42,14 @@ function App() {
     <>
       <CafeInfo />
       <VoteOptions onVote={onVote} onReset={onReset} canReset={canReset} />
-      {canReset && (
-        <VoteStatsProps
+      {totalVotes !== 0 && (
+        <VoteStats
           votes={vote}
           totalVotes={totalVotes}
           positiveRate={positiveRate}
         />
       )}
-      {!canReset && <Notification />}
+      {totalVotes == 0 && <Notification />}
     </>
   );
 }
