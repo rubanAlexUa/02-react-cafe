@@ -8,8 +8,6 @@ import type { Votes } from "../../types/votes";
 import type { VoteType } from "../../types/votes";
 
 function App() {
-  const [canReset, setCanReset] = useState<boolean>(false);
-
   const [vote, setVote] = useState<Votes>({
     good: 0,
     neutral: 0,
@@ -20,9 +18,9 @@ function App() {
   const positiveRate: number = totalVotes
     ? Math.round((vote.good / totalVotes) * 100)
     : 0;
+  const canReset = totalVotes > 0;
 
   function onVote(key: VoteType): void {
-    setCanReset(true);
     setVote((prevVote) => ({
       ...prevVote,
       [key]: prevVote[key] + 1,
@@ -30,7 +28,6 @@ function App() {
     console.log(vote);
   }
   function onReset(): void {
-    setCanReset(false);
     setVote({
       good: 0,
       neutral: 0,

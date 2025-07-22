@@ -5,7 +5,7 @@ interface VoteStatsProps {
   totalVotes: number;
   positiveRate: number;
 }
-export default function VoteStatsStats({
+export default function VoteStats({
   votes: { good, neutral, bad },
   totalVotes,
   positiveRate,
