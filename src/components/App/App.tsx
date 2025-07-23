@@ -25,7 +25,6 @@ function App() {
       ...prevVote,
       [key]: prevVote[key] + 1,
     }));
-    console.log(vote);
   }
   function onReset(): void {
     setVote({
@@ -33,7 +32,6 @@ function App() {
       neutral: 0,
       bad: 0,
     });
-    console.log(vote);
   }
   return (
     <>
